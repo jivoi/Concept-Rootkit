@@ -3,21 +3,7 @@ cmd_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o := 
 source_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o := /root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.c
 
 deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o := \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/module.h \
-    $(wildcard include/config/sysfs.h) \
-    $(wildcard include/config/modules.h) \
-    $(wildcard include/config/unused/symbols.h) \
-    $(wildcard include/config/module/sig.h) \
-    $(wildcard include/config/generic/bug.h) \
-    $(wildcard include/config/kallsyms.h) \
-    $(wildcard include/config/smp.h) \
-    $(wildcard include/config/tracepoints.h) \
-    $(wildcard include/config/tracing.h) \
-    $(wildcard include/config/event/tracing.h) \
-    $(wildcard include/config/ftrace/mcount/record.h) \
-    $(wildcard include/config/module/unload.h) \
-    $(wildcard include/config/constructors.h) \
-    $(wildcard include/config/debug/set/module/ronx.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/semaphore.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/list.h \
     $(wildcard include/config/debug/list.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/types.h \
@@ -63,12 +49,16 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/prove/locking.h) \
     $(wildcard include/config/panic/timeout.h) \
     $(wildcard include/config/ring/buffer.h) \
+    $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/ftrace/mcount/record.h) \
   /usr/lib/gcc/x86_64-linux-gnu/4.7/include/stdarg.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/linkage.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/stringify.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/export.h \
     $(wildcard include/config/have/underscore/symbol/prefix.h) \
+    $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
+    $(wildcard include/config/unused/symbols.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/linkage.h \
     $(wildcard include/config/x86/64.h) \
     $(wildcard include/config/x86/alignment/16.h) \
@@ -76,6 +66,7 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/alternative.h \
+    $(wildcard include/config/smp.h) \
     $(wildcard include/config/paravirt.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/asm.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/ptrace.h \
@@ -167,17 +158,11 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
   /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/kernel.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/sysinfo.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/dynamic_debug.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/stat.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/stat.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/stat.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/time.h \
-    $(wildcard include/config/arch/uses/gettimeoffset.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/seqlock.h \
-    $(wildcard include/config/debug/lock/alloc.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/spinlock.h \
     $(wildcard include/config/debug/spinlock.h) \
     $(wildcard include/config/generic/lockbreak.h) \
     $(wildcard include/config/preempt.h) \
+    $(wildcard include/config/debug/lock/alloc.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/preempt.h \
     $(wildcard include/config/debug/preempt.h) \
     $(wildcard include/config/preempt/tracer.h) \
@@ -197,6 +182,7 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/compat.h) \
     $(wildcard include/config/debug/stack/usage.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/bug.h \
+    $(wildcard include/config/generic/bug.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/bug.h \
     $(wildcard include/config/debug/bugverbose.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/bug.h \
@@ -311,67 +297,37 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/inline/write/unlock/irq.h) \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/time64.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/time.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/uidgid.h \
-    $(wildcard include/config/user/ns.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/highuid.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kmod.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/gfp.h \
-    $(wildcard include/config/numa.h) \
-    $(wildcard include/config/highmem.h) \
-    $(wildcard include/config/zone/dma.h) \
-    $(wildcard include/config/zone/dma32.h) \
-    $(wildcard include/config/pm/sleep.h) \
-    $(wildcard include/config/cma.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mmdebug.h \
-    $(wildcard include/config/debug/vm.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mmzone.h \
-    $(wildcard include/config/force/max/zoneorder.h) \
-    $(wildcard include/config/memory/isolation.h) \
-    $(wildcard include/config/memcg.h) \
-    $(wildcard include/config/memory/hotplug.h) \
-    $(wildcard include/config/compaction.h) \
-    $(wildcard include/config/have/memblock/node/map.h) \
-    $(wildcard include/config/flat/node/mem/map.h) \
-    $(wildcard include/config/no/bootmem.h) \
-    $(wildcard include/config/have/memory/present.h) \
-    $(wildcard include/config/have/memoryless/nodes.h) \
-    $(wildcard include/config/need/node/memmap/size.h) \
-    $(wildcard include/config/need/multiple/nodes.h) \
-    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
-    $(wildcard include/config/sparsemem/extreme.h) \
-    $(wildcard include/config/have/arch/pfn/valid.h) \
-    $(wildcard include/config/nodes/span/other/nodes.h) \
-    $(wildcard include/config/holes/in/zone.h) \
-    $(wildcard include/config/arch/has/holes/memorymodel.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/keyboard.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/keyboard.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/wait.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/wait.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/numa.h \
-    $(wildcard include/config/nodes/shift.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/nodemask.h \
-    $(wildcard include/config/movable/node.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pageblock-flags.h \
-    $(wildcard include/config/hugetlb/page.h) \
-    $(wildcard include/config/hugetlb/page/size/variable.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/page-flags-layout.h \
-  include/generated/bounds.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/memory_hotplug.h \
-    $(wildcard include/config/memory/hotremove.h) \
-    $(wildcard include/config/have/arch/nodedata/extension.h) \
-    $(wildcard include/config/have/bootmem/info/node.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/notifier.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/errno.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/errno.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mutex.h \
-    $(wildcard include/config/debug/mutexes.h) \
-    $(wildcard include/config/mutex/spin/on/owner.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/osq_lock.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rwsem.h \
-    $(wildcard include/config/rwsem/spin/on/owner.h) \
-    $(wildcard include/config/rwsem/generic/spinlock.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/rwsem.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/srcu.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/syscalls.h \
+    $(wildcard include/config/ftrace/syscalls.h) \
+    $(wildcard include/config/old/sigsuspend.h) \
+    $(wildcard include/config/old/sigsuspend3.h) \
+    $(wildcard include/config/old/sigaction.h) \
+    $(wildcard include/config/odd/rt/sigaction.h) \
+    $(wildcard include/config/ia64.h) \
+    $(wildcard include/config/clone/backwards.h) \
+    $(wildcard include/config/clone/backwards3.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/aio_abi.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/capability.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/capability.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/signal.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/signal.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/signal.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/signal.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/time.h \
+    $(wildcard include/config/arch/uses/gettimeoffset.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/seqlock.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/time64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/time.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/signal-defs.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/siginfo.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/siginfo.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/siginfo.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/sem.h \
+    $(wildcard include/config/sysvipc.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rcupdate.h \
     $(wildcard include/config/tree/rcu.h) \
     $(wildcard include/config/tree/preempt/rcu.h) \
@@ -391,27 +347,37 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/debug/objects.h) \
     $(wildcard include/config/debug/objects/free.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rcutree.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/workqueue.h \
-    $(wildcard include/config/debug/objects/work.h) \
-    $(wildcard include/config/freezer.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timer.h \
-    $(wildcard include/config/timer/stats.h) \
-    $(wildcard include/config/debug/objects/timers.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ktime.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/jiffies.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timex.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/timex.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/param.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/param.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/param.h \
-    $(wildcard include/config/hz.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/param.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/timex.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/tsc.h \
-    $(wildcard include/config/x86/tsc.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timekeeping.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/mmzone.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/mmzone_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/sem.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ipc.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/uidgid.h \
+    $(wildcard include/config/user/ns.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/highuid.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/ipc.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/ipcbuf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/ipcbuf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/sembuf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/unistd.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/unistd.h \
+    $(wildcard include/config/x86/x32/abi.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/unistd.h \
+  arch/x86/include/generated/uapi/asm/unistd_64.h \
+  arch/x86/include/generated/asm/unistd_64_x32.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/quota.h \
+    $(wildcard include/config/quota/netlink/interface.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mutex.h \
+    $(wildcard include/config/debug/mutexes.h) \
+    $(wildcard include/config/mutex/spin/on/owner.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/osq_lock.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rwsem.h \
+    $(wildcard include/config/rwsem/spin/on/owner.h) \
+    $(wildcard include/config/rwsem/generic/spinlock.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/rwsem.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/percpu_counter.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/smp.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/errno.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/errno.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/llist.h \
+    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/smp.h \
     $(wildcard include/config/x86/io/apic.h) \
     $(wildcard include/config/x86/32/smp.h) \
@@ -432,9 +398,12 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/efi.h) \
     $(wildcard include/config/hibernation.h) \
     $(wildcard include/config/memtest.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/numa.h \
+    $(wildcard include/config/nodes/shift.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/e820.h \
     $(wildcard include/config/intel/txt.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ioport.h \
+    $(wildcard include/config/memory/hotremove.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/ist.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/ist.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/video/edid.h \
@@ -446,9 +415,30 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pm.h \
     $(wildcard include/config/vt/console/sleep.h) \
     $(wildcard include/config/pm.h) \
+    $(wildcard include/config/pm/sleep.h) \
     $(wildcard include/config/pm/runtime.h) \
     $(wildcard include/config/pm/clk.h) \
     $(wildcard include/config/pm/generic/domains.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/workqueue.h \
+    $(wildcard include/config/debug/objects/work.h) \
+    $(wildcard include/config/freezer.h) \
+    $(wildcard include/config/sysfs.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timer.h \
+    $(wildcard include/config/timer/stats.h) \
+    $(wildcard include/config/debug/objects/timers.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ktime.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/jiffies.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timex.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/timex.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/param.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/param.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/param.h \
+    $(wildcard include/config/hz.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/param.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/timex.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/tsc.h \
+    $(wildcard include/config/x86/tsc.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timekeeping.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/fixmap.h \
     $(wildcard include/config/paravirt/clock.h) \
     $(wildcard include/config/provide/ohci1394/dma/init.h) \
@@ -459,10 +449,15 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/acpi/numa.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/acpi/pdc_intel.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/numa.h \
+    $(wildcard include/config/numa.h) \
     $(wildcard include/config/numa/emu.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/nodemask.h \
+    $(wildcard include/config/highmem.h) \
+    $(wildcard include/config/movable/node.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/topology.h \
     $(wildcard include/config/x86/ht.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/topology.h \
+    $(wildcard include/config/have/memoryless/nodes.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/mmu.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/realmode.h \
     $(wildcard include/config/acpi/sleep.h) \
@@ -502,27 +497,72 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/io_apic.h \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/have/kvm.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/topology.h \
-    $(wildcard include/config/use/percpu/numa/node/id.h) \
-    $(wildcard include/config/sched/smt.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/smp.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/llist.h \
-    $(wildcard include/config/arch/have/nmi/safe/cmpxchg.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/percpu.h \
     $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
     $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mmdebug.h \
+    $(wildcard include/config/debug/vm.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pfn.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/sysctl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/gfp.h \
+    $(wildcard include/config/zone/dma.h) \
+    $(wildcard include/config/zone/dma32.h) \
+    $(wildcard include/config/cma.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mmzone.h \
+    $(wildcard include/config/force/max/zoneorder.h) \
+    $(wildcard include/config/memory/isolation.h) \
+    $(wildcard include/config/memcg.h) \
+    $(wildcard include/config/memory/hotplug.h) \
+    $(wildcard include/config/compaction.h) \
+    $(wildcard include/config/have/memblock/node/map.h) \
+    $(wildcard include/config/flat/node/mem/map.h) \
+    $(wildcard include/config/no/bootmem.h) \
+    $(wildcard include/config/have/memory/present.h) \
+    $(wildcard include/config/need/node/memmap/size.h) \
+    $(wildcard include/config/need/multiple/nodes.h) \
+    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
+    $(wildcard include/config/sparsemem/extreme.h) \
+    $(wildcard include/config/have/arch/pfn/valid.h) \
+    $(wildcard include/config/nodes/span/other/nodes.h) \
+    $(wildcard include/config/holes/in/zone.h) \
+    $(wildcard include/config/arch/has/holes/memorymodel.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pageblock-flags.h \
+    $(wildcard include/config/hugetlb/page.h) \
+    $(wildcard include/config/hugetlb/page/size/variable.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/page-flags-layout.h \
+  include/generated/bounds.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/memory_hotplug.h \
+    $(wildcard include/config/have/arch/nodedata/extension.h) \
+    $(wildcard include/config/have/bootmem/info/node.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/notifier.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/srcu.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/mmzone.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/mmzone_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/topology.h \
+    $(wildcard include/config/use/percpu/numa/node/id.h) \
+    $(wildcard include/config/sched/smt.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/dqblk_xfs.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/dqblk_v1.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/dqblk_v2.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/dqblk_qtree.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/projid.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/quota.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/key.h \
+    $(wildcard include/config/keys.h) \
     $(wildcard include/config/sysctl.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/sysctl.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/sysctl.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/elf.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/elf.h \
-    $(wildcard include/config/x86/x32/abi.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/user.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/user_64.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/auxvec.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/vdso.h \
-    $(wildcard include/config/x86/x32.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/assoc_array.h \
+    $(wildcard include/config/associative/array.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/trace/syscall.h \
+    $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/have/syscall/tracepoints.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/tracepoint.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/static_key.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ftrace_event.h \
+    $(wildcard include/config/perf/events.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ring_buffer.h \
+    $(wildcard include/config/ring/buffer/allow/swap.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kmemcheck.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mm_types.h \
     $(wildcard include/config/split/ptlock/cpus.h) \
     $(wildcard include/config/arch/enable/split/pmd/ptlock.h) \
@@ -534,6 +574,7 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/mmu/notifier.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/auxvec.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/auxvec.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/auxvec.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/page-debug-flags.h \
     $(wildcard include/config/page/poisoning.h) \
     $(wildcard include/config/page/guard.h) \
@@ -541,8 +582,244 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/uprobes.h \
     $(wildcard include/config/uprobes.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/uprobes.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/elf.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/elf-em.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/mm.h \
+    $(wildcard include/config/ppc.h) \
+    $(wildcard include/config/parisc.h) \
+    $(wildcard include/config/metag.h) \
+    $(wildcard include/config/stack/growsup.h) \
+    $(wildcard include/config/ksm.h) \
+    $(wildcard include/config/shmem.h) \
+    $(wildcard include/config/debug/vm/rb.h) \
+    $(wildcard include/config/debug/pagealloc.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/debug_locks.h \
+    $(wildcard include/config/debug/locking/api/selftests.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/bit_spinlock.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/shrinker.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/resource.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/resource.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/resource.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/resource.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/resource.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/pgtable.h \
+    $(wildcard include/config/have/arch/soft/dirty.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/pgtable_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/pgtable.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/page-flags.h \
+    $(wildcard include/config/pageflags/extended.h) \
+    $(wildcard include/config/arch/uses/pg/uncached.h) \
+    $(wildcard include/config/memory/failure.h) \
+    $(wildcard include/config/swap.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/huge_mm.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/vmstat.h \
+    $(wildcard include/config/vm/event/counters.h) \
+    $(wildcard include/config/debug/tlbflush.h) \
+    $(wildcard include/config/debug/vm/vmacache.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/vm_event_item.h \
+    $(wildcard include/config/migration.h) \
+    $(wildcard include/config/memory/balloon.h) \
+    $(wildcard include/config/balloon/compaction.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/seq_file.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/poll.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/fs.h \
+    $(wildcard include/config/fs/posix/acl.h) \
+    $(wildcard include/config/security.h) \
+    $(wildcard include/config/ima.h) \
+    $(wildcard include/config/quota.h) \
+    $(wildcard include/config/fsnotify.h) \
+    $(wildcard include/config/epoll.h) \
+    $(wildcard include/config/file/locking.h) \
+    $(wildcard include/config/auditsyscall.h) \
+    $(wildcard include/config/block.h) \
+    $(wildcard include/config/fs/xip.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kdev_t.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/kdev_t.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/dcache.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rculist.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rculist_bl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/list_bl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/lockref.h \
+    $(wildcard include/config/arch/use/cmpxchg/lockref.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/path.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/stat.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/stat.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/stat.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/list_lru.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/radix-tree.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pid.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/fiemap.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/migrate_mode.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/percpu-rwsem.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/blk_types.h \
+    $(wildcard include/config/blk/cgroup.h) \
+    $(wildcard include/config/blk/dev/integrity.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/fs.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/limits.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/nfs_fs_i.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/fcntl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/fcntl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/fcntl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/fcntl.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/uaccess.h \
+    $(wildcard include/config/x86/intel/usercopy.h) \
+    $(wildcard include/config/debug/strict/user/copy/checks.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/smap.h \
+    $(wildcard include/config/x86/smap.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/uaccess_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/poll.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/poll.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/poll.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/trace_seq.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/hardirq.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/vtime.h \
+    $(wildcard include/config/virt/cpu/accounting/native.h) \
+    $(wildcard include/config/virt/cpu/accounting/gen.h) \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/context_tracking_state.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/hardirq.h \
+    $(wildcard include/config/x86/thermal/vector.h) \
+    $(wildcard include/config/x86/mce/threshold.h) \
+    $(wildcard include/config/hyperv.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/irq.h \
+    $(wildcard include/config/generic/pending/irq.h) \
+    $(wildcard include/config/hardirqs/sw/resend.h) \
+    $(wildcard include/config/generic/irq/legacy/alloc/hwirq.h) \
+    $(wildcard include/config/generic/irq/legacy.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/irqreturn.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/irqnr.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/irqnr.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/irq.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/irq_regs.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/irqdesc.h \
+    $(wildcard include/config/irq/preflow/fasteoi.h) \
+    $(wildcard include/config/sparse/irq.h) \
+    $(wildcard include/config/handle/domain/irq.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/hw_irq.h \
+    $(wildcard include/config/irq/remap.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/profile.h \
+    $(wildcard include/config/profiling.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/sections.h \
+    $(wildcard include/config/debug/rodata.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/sections.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/perf_event.h \
+    $(wildcard include/config/have/hw/breakpoint.h) \
+    $(wildcard include/config/event/tracing.h) \
+    $(wildcard include/config/function/tracer.h) \
+    $(wildcard include/config/cgroup/perf.h) \
+    $(wildcard include/config/no/hz/full.h) \
+    $(wildcard include/config/cpu/sup/intel.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/perf_event.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/perf_event.h \
+    $(wildcard include/config/cpu/sup/amd.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/stacktrace.h \
+    $(wildcard include/config/frame/pointer.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/uaccess.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ptrace.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/sched.h \
+    $(wildcard include/config/sched/debug.h) \
+    $(wildcard include/config/no/hz/common.h) \
+    $(wildcard include/config/lockup/detector.h) \
+    $(wildcard include/config/detect/hung/task.h) \
+    $(wildcard include/config/core/dump/default/elf/headers.h) \
+    $(wildcard include/config/sched/autogroup.h) \
+    $(wildcard include/config/bsd/process/acct.h) \
+    $(wildcard include/config/taskstats.h) \
+    $(wildcard include/config/audit.h) \
+    $(wildcard include/config/cgroups.h) \
+    $(wildcard include/config/inotify/user.h) \
+    $(wildcard include/config/fanotify.h) \
+    $(wildcard include/config/posix/mqueue.h) \
+    $(wildcard include/config/schedstats.h) \
+    $(wildcard include/config/task/delay/acct.h) \
+    $(wildcard include/config/sched/mc.h) \
+    $(wildcard include/config/fair/group/sched.h) \
+    $(wildcard include/config/rt/group/sched.h) \
+    $(wildcard include/config/cgroup/sched.h) \
+    $(wildcard include/config/blk/dev/io/trace.h) \
+    $(wildcard include/config/compat/brk.h) \
+    $(wildcard include/config/rt/mutexes.h) \
+    $(wildcard include/config/task/xacct.h) \
+    $(wildcard include/config/cpusets.h) \
+    $(wildcard include/config/futex.h) \
+    $(wildcard include/config/fault/injection.h) \
+    $(wildcard include/config/latencytop.h) \
+    $(wildcard include/config/function/graph/tracer.h) \
+    $(wildcard include/config/bcache.h) \
+    $(wildcard include/config/have/unstable/sched/clock.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/sched.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/sched/prio.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/plist.h \
+    $(wildcard include/config/debug/pi/list.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/cputime.h \
+  arch/x86/include/generated/asm/cputime.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/cputime.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/cputime_jiffies.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/shm.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/shm.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/shmbuf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/asm-generic/shmbuf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/shmparam.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/proportions.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/seccomp.h \
+    $(wildcard include/config/seccomp.h) \
+    $(wildcard include/config/have/arch/seccomp/filter.h) \
+    $(wildcard include/config/seccomp/filter.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/seccomp.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/seccomp.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/seccomp_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/ia32_unistd.h \
+  arch/x86/include/generated/asm/unistd_32_ia32.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/rtmutex.h \
+    $(wildcard include/config/debug/rt/mutexes.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/hrtimer.h \
+    $(wildcard include/config/high/res/timers.h) \
+    $(wildcard include/config/timerfd.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/timerqueue.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/task_io_accounting.h \
+    $(wildcard include/config/task/io/accounting.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/latencytop.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/cred.h \
+    $(wildcard include/config/debug/credentials.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/selinux.h \
+    $(wildcard include/config/security/selinux.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/magic.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pid_namespace.h \
+    $(wildcard include/config/pid/ns.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/nsproxy.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kref.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/ptrace.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/local64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/asm-generic/local64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/local.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/hw_breakpoint.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/hw_breakpoint.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kdebug.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/kdebug.h \
+    $(wildcard include/config/kexec.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ftrace.h \
+    $(wildcard include/config/dynamic/ftrace/with/regs.h) \
+    $(wildcard include/config/dynamic/ftrace.h) \
+    $(wildcard include/config/stack/tracer.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/trace_clock.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/trace_clock.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kallsyms.h \
+    $(wildcard include/config/kallsyms.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/ftrace.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/compat.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/user32.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/cpu.h \
+    $(wildcard include/config/pm/sleep/smp.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/node.h \
+    $(wildcard include/config/memory/hotplug/sparse.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/device.h \
+    $(wildcard include/config/debug/devres.h) \
+    $(wildcard include/config/pinctrl.h) \
+    $(wildcard include/config/dma/cma.h) \
+    $(wildcard include/config/devtmpfs.h) \
+    $(wildcard include/config/sysfs/deprecated.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kobject.h \
     $(wildcard include/config/uevent/helper.h) \
     $(wildcard include/config/debug/kobject/release.h) \
@@ -551,10 +828,39 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/kernfs.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/idr.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kobject_ns.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kref.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/klist.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pinctrl/devinfo.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pinctrl/consumer.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pinctrl/pinctrl-state.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/ratelimit.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/device.h \
+    $(wildcard include/config/x86/dev/dma/ops.h) \
+    $(wildcard include/config/intel/iommu.h) \
+    $(wildcard include/config/amd/iommu.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/pm_wakeup.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/irq_work.h \
+    $(wildcard include/config/irq/work.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/irq_work.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/jump_label_ratelimit.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/perf_regs.h \
+    $(wildcard include/config/have/perf/regs.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/uapi/asm/perf_regs.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/module.h \
+    $(wildcard include/config/module/sig.h) \
+    $(wildcard include/config/module/unload.h) \
+    $(wildcard include/config/constructors.h) \
+    $(wildcard include/config/debug/set/module/ronx.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/kmod.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/elf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/elf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/user.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/user_64.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/vdso.h \
+    $(wildcard include/config/x86/x32.h) \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/elf.h \
+  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/elf-em.h \
   /usr/src/linux-headers-3.18.0-kali3-common/include/linux/moduleparam.h \
     $(wildcard include/config/alpha.h) \
-    $(wildcard include/config/ia64.h) \
     $(wildcard include/config/ppc64.h) \
   /usr/src/linux-headers-3.18.0-kali3-common/arch/x86/include/asm/module.h \
     $(wildcard include/config/m586.h) \
@@ -582,8 +888,6 @@ deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o :=
     $(wildcard include/config/have/mod/arch/specific.h) \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/linux/keyboard.h \
-  /usr/src/linux-headers-3.18.0-kali3-common/include/uapi/linux/keyboard.h \
 
 /root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o: $(deps_/root/Desktop/programming/439/term_project/Concept-Rootkit/src/rootkit.o)
 

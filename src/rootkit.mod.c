@@ -20,6 +20,8 @@ __attribute__((section("__versions"))) = {
 	{ 0x5cdb9d2f, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0x9ed554b3, __VMLINUX_SYMBOL_STR(unregister_keyboard_notifier) },
 	{ 0x96554810, __VMLINUX_SYMBOL_STR(register_keyboard_notifier) },
+	{ 0xfb578fc5, __VMLINUX_SYMBOL_STR(memset) },
+	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
 };
